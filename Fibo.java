@@ -1,23 +1,25 @@
 public class Fibo {
+    // code for prime nos
     public static void main(String[] args) {
-        int a = 0;
-        int b = 1;
-        int c = 1;
+        int c = 0;
+        int n = 0;
+        int i = 1;
+        int j = 1;
 
-        for (int i = 0; i < 7; i++) {
-            System.out.println(a);
-            System.out.println(b);
-            if (c == 6765) {
-                a = b + c;
-                b = c + a;
-                c = a + b;
-                continue;
+        while (n < 20) {
+            j = 1;
+            c = 0;
+            while (j <= i) {
+                if (i % j == 0) {
+                    c++;
+                }
+                j++;
             }
-            System.out.println(c);
-
-            a = b + c;
-            b = c + a;
-            c = a + b;
+            if (c == 2) {
+                System.out.println(i);
+                n++;
+            }
+            i++;
         }
     }
 }
