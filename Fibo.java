@@ -1,25 +1,41 @@
 public class Fibo {
-    // code for prime nos
-    public static void main(String[] args) {
-        int c = 0;
-        int n = 0;
-        int i = 1;
-        int j = 1;
 
-        while (n < 20) {
-            j = 1;
-            c = 0;
-            while (j <= i) {
-                if (i % j == 0) {
-                    c++;
-                }
-                j++;
-            }
-            if (c == 2) {
-                System.out.println(i);
-                n++;
-            }
-            i++;
-        }
-    }
+int pow(int x, int y) {
+		if(y==0) {
+			return 1;
+		}
+		if(y%2==0) {
+			return pow(x,y/2)*pow(x,y/2);
+		}
+		return x*pow(x,y/2)*pow(x,y/2);
+	}
+	
+	int ord(int x) {
+		int n = 0;
+		while(x!=0) {
+			n++;
+			x=x/10;
+		}
+		return n;
+	}
+	
+	boolean isArm(int x) {
+		int n = ord(x);
+		int temp = x;
+		int sum = 0;
+		while(temp!=0) {
+			int r = temp%10;
+			sum = sum + pow(r,n);
+			temp = temp/10;
+		}
+		return (sum==x);
+	}
+
+	public static void main(String[] args) {
+		Arms obj = new Arms();
+		int x = 372;
+		System.out.println(obj.isArm(x));
+		
+	}
+
 }
